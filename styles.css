@@ -1,0 +1,134 @@
+:root {
+    --color-white : hsl(0, 100%, 100%);
+    --color-black: hsl(0, 0%, 0%);
+
+    --color-grey-600: hsl(180, 25%, 32%);
+    --color-grey-550: hsl(180, 18%, 40%);
+    --color-grey-500: hsl(186, 14%, 43%);
+    --color-grey-400: hsl(184, 14%, 56%);
+    --color-grey-300: hsl(184, 19%, 68%);
+    --color-grey-200: hsl(185, 41%, 84%);
+    --color-grey-50: hsl(189, 47%, 97%);
+
+    --color-green-900: hsl(183, 100%, 15%);
+    --color-green-800: hsl(183, 85%, 21%);
+    --color-green-750: hsl(183, 79%, 24%);
+    --color-green-400: hsl(172, 67%, 45%);
+    --color-green-200: hsl(173, 61%, 77%);
+
+    --color-orange-400: hsl(13, 70%, 60%);
+
+    --font-family-primary : "Space Mono", monospace;
+
+    --font-weight-primary : 700;
+
+    --font-size-1: 3rem;
+    --font-size-2: 2rem;
+    --font-size-3: 1.5rem;
+    --font-size-4: 1.25rem;
+    --font-size-5: 1rem;
+    --font-size-6: 0.8125rem;
+
+    --line-height-1: 1.48;
+    --line-height-2: 1.47;
+    --line-height-3: 1.5;
+    --line-height-4: 1.5;
+    --line-height-5: 1.5;
+    --line-height-6: 1.46;
+
+    --letter-spacing-1: -1px;
+    --letter-spacing-2: -0.67px;
+    --letter-spacing-3: 0px;
+    --letter-spacing-4: 0px;
+    --letter-spacing-5: 0px;
+    --letter-spacing-6: 0px;
+
+    --spacing-0: 0rem;
+    --spacing-100: 0.5rem;
+    --spacing-200: 1rem;
+    --spacing-300: 1.5rem;
+    --spacing-400: 2rem;
+    --spacing-600: 3rem;
+    --spacing-1000: 5rem;
+    --spacing-1200: 6rem;
+    --spacing-1500: 7.5rem;
+    --spacing-1600: 8rem;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body { 
+   background-color: var(--color-green-200);  
+   font-weight: var(--font-weight-primary); 
+   font-family: var(--font-family-primary); 
+  /* 4. Add accessible line-height */
+  line-height: var(--line-height-3);
+  /* 5. Improve text rendering */
+  letter-spacing: var(--letter-spacing-3);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* 10. Remove default border and padding */
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+
+main {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    min-height: 100vh;
+}
+
+.bill__container {
+    background-color: var(--color-white);
+    display: grid;
+}
+
+@media (min-width: 50rem) {
+    .bill__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
