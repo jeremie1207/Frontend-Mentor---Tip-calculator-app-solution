@@ -1,77 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Tip calculator app</title>
 
-  <link rel="stylesheet" href="./styles.css">
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <main>
-    <img src="./images/logo.svg" alt="logo of SPLITTER">
-    <form class="bill__container" action="" novalidate>
-      <section class="bill__section">
-        <label for="bill">Bill</label><br>
-        <input type="text" id="bill" name="bill" >
-        <fieldset class="tip__option">
-          <legend>Select Tip %</legend>
-          <input type="radio" name="tip" id="tip-5" value="5">
-          <label for="tip-5">5%</label>
-          <input type="radio" name="tip" id="tip-10" value="10">
-          <label for="tip-10">10%</label>
-          <input type="radio" name="tip" id="tip-15" value="15">
-          <label for="tip-15">15%</label>
-          <input type="radio" name="tip" id="tip-25" value="25">
-          <label for="tip-25">25%</label>
-          <input type="radio" name="tip" id="tip-50" value="50">
-          <label for="tip-50">50%</label>
-          <input type="radio" name="tip" id="custom-tip">
-          <label for="custom-tip">
-            <input type="number" min="1" max="100" id="custom-amount" placeholder="Custom">
-          </label>
-        </fieldset>
-        <label for="people">Number of People</label><br>
-        <input type="number" name="people" id="people" min="1">
-      </section>
-      <section class="bill__result">
-        <section class="bill__amount">
-          <section class="bill__amount_text">
-            <p>Tip Amount <br><small>/ person</small></p>
-            
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="./images/logo.svg" alt="logo of SPLITTER" />
+      <form class="bill__container" action="" novalidate>
+        <section class="bill__section">
+          <section>
+            <label for="bill">Bill</label><br />
+            <div class="bill__section_input_icon">
+              <img src="./images/icon-dollar.svg" alt="dollar icon" />
+              <input
+                class="bill__section_input"
+                type="number"
+                id="bill"
+                name="bill"
+              />
+            </div>
           </section>
-          <p class="amount__per_person">
-            $0
-          </p>
-        </section>
-        <section class="bill__total">
-          <section class="bill__total_text">
-            <p>Total <br><small>/ person</small></p>
+
+          <fieldset class="tip__option">
+            <legend>Select Tip %</legend>
+            <input type="radio" name="tip" id="tip-5" value="5" />
+            <label for="tip-5">5%</label>
+            <input type="radio" name="tip" id="tip-10" value="10" />
+            <label for="tip-10">10%</label>
+            <input type="radio" name="tip" id="tip-15" value="15" />
+            <label for="tip-15">15%</label>
+            <input type="radio" name="tip" id="tip-25" value="25" />
+            <label for="tip-25">25%</label>
+            <input type="radio" name="tip" id="tip-50" value="50" />
+            <label for="tip-50">50%</label>
+            <input type="radio" name="tip" id="custom-tip" />
+            <label for="custom-tip">
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="custom-amount"
+                placeholder="Custom"
+              />
+            </label>
+          </fieldset>
+          <section>
+            <label for="people">Number of People</label><br />
+            <div class="bill__section_input_icon">
+              <img src="./images/icon-person.svg" alt="person icon" />
+              <input
+                class="bill__section_input"
+                type="number"
+                name="people"
+                id="people"
+                min="1"
+              />
+            </div>
           </section>
-          <p class="total__per_person">
-            $0
-          </p>
         </section>
-        <button>Reset</button>
-      </section>
-    </form>
-  </main>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <section class="bill__result">
+          <section class="bill__amount">
+            <section class="bill__amount_text">
+              <p>Tip Amount <br /><small>/ person</small></p>
+            </section>
+            <p class="amount__per_person">$0</p>
+          </section>
+          <section class="bill__total">
+            <section class="bill__total_text">
+              <p>Total <br /><small>/ person</small></p>
+            </section>
+            <p class="total__per_person">$0</p>
+          </section>
+          <button>Reset</button>
+        </section>
+      </form>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>
