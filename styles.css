@@ -143,6 +143,10 @@ main {
   min-height: 100vh;
 }
 
+img[alt="logo of SPLITTER"] {
+ margin-block-end: clamp(5vh, 10%, 20vh);
+}
+
 .bill__container {
   background-color: var(--color-white);
   display: grid;
@@ -150,13 +154,16 @@ main {
   padding-inline: var(--spacing-300);
   gap: var(--spacing-400);
   border-radius: 15px;
+  inline-size: 100vw;
+  max-inline-size: 57.5rem;
 }
 
-@media (min-width: 37.5rem) {
+@media (min-width: 33.5rem) {
   .bill__container {
     padding-block: var(--spacing-600);
     padding-inline: var(--spacing-1000);
     gap: 2.5rem;
+    inline-size: 85vw;
   }
 }
 
@@ -188,7 +195,7 @@ main {
   position: relative;
 }
 
-.bill__section_input {
+.bill__section_input, .tip__options input[type="number"] {
   background-color: var(--color-grey-50); 
   inline-size: 100%;
   color: var(--color-green-900);
@@ -199,7 +206,7 @@ main {
   padding-block: var(--spacing-100);
 }
 
-.bill__section_input:focus{
+.bill__section_input:focus, .tip__options input[type="number"]:focus{
   outline: none;
   border: 2px solid var(--color-green-400);
 }
@@ -229,3 +236,76 @@ main {
     padding-inline: var(--spacing-400);
   }
 }
+
+
+.tip__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-100);
+}
+
+@media (min-width: 37.5rem) {
+  .tip__options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tip__options input[type="radio"] {
+    display: none;
+}
+.tip__options label {
+    background-color: var(--color-green-900);
+    text-align: center;
+    color: var(--color-white);
+    padding-inline: var(--spacing-200);
+    padding-block: var(--spacing-100);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tip__options label:hover{
+    background-color: var(--color-green-400);
+    color: var(--color-green-900);
+}
+
+.tip__options label[data-state="active"]{
+    background-color: var(--color-green-200);
+    color: var(--color-green-900);
+}
+
+.bill__result section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.per_person {
+    color: var(--color-green-400);
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-1);
+    letter-spacing: var(--letter-spacing-1);
+}
+
+.bill__result_text{
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+    letter-spacing: var(--letter-spacing-5);
+}
+
+.bill__result_text small {
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-6);
+    letter-spacing: var(--letter-spacing-6);
+    color: var(--color-grey-400);
+}
+
+button {
+    background-color: var(--color-green-400);
+    padding-inline: var(--spacing-200);
+    padding-block: var(--spacing-100);
+    text-transform: uppercase;
+    color: var(--color-green-900);
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
