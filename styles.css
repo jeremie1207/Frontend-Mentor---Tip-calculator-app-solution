@@ -144,7 +144,7 @@ main {
 }
 
 img[alt="logo of SPLITTER"] {
- margin-block-end: clamp(5vh, 10%, 20vh);
+  margin-block-end: clamp(5vh, 10%, 20vh);
 }
 
 .bill__container {
@@ -195,8 +195,9 @@ img[alt="logo of SPLITTER"] {
   position: relative;
 }
 
-.bill__section_input, .tip__options input[type="number"] {
-  background-color: var(--color-grey-50); 
+.bill__section_input,
+.tip__options input[type="number"] {
+  background-color: var(--color-grey-50);
   inline-size: 100%;
   color: var(--color-green-900);
   text-align: end;
@@ -206,7 +207,8 @@ img[alt="logo of SPLITTER"] {
   padding-block: var(--spacing-100);
 }
 
-.bill__section_input:focus, .tip__options input[type="number"]:focus{
+.bill__section_input:focus,
+.tip__options input[type="number"]:focus {
   outline: none;
   border: 2px solid var(--color-green-400);
 }
@@ -219,16 +221,14 @@ img[alt="logo of SPLITTER"] {
   pointer-events: none;
 }
 
-
-
 .bill__result {
-    background-color: var(--color-green-900);
-    padding: var(--spacing-300);
-    border-radius: 15px;
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background-color: var(--color-green-900);
+  padding: var(--spacing-300);
+  border-radius: 15px;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (min-width: 37.5rem) {
@@ -237,11 +237,10 @@ img[alt="logo of SPLITTER"] {
   }
 }
 
-
 .tip__options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-100);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-100);
 }
 
 @media (min-width: 37.5rem) {
@@ -251,61 +250,80 @@ img[alt="logo of SPLITTER"] {
 }
 
 .tip__options input[type="radio"] {
-    display: none;
+  display: none;
 }
 .tip__options label {
-    background-color: var(--color-green-900);
-    text-align: center;
-    color: var(--color-white);
-    padding-inline: var(--spacing-200);
-    padding-block: var(--spacing-100);
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: var(--color-green-900);
+  text-align: center;
+  color: var(--color-white);
+  padding-inline: var(--spacing-200);
+  padding-block: var(--spacing-100);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.tip__options label:hover{
-    background-color: var(--color-green-400);
-    color: var(--color-green-900);
+.tip__options label:hover {
+  background-color: var(--color-green-400);
+  color: var(--color-green-900);
 }
 
-.tip__options label[data-state="active"]{
-    background-color: var(--color-green-200);
-    color: var(--color-green-900);
+.tip__options label[data-state="active"] {
+  background-color: var(--color-green-200);
+  color: var(--color-green-900);
 }
 
-.bill__result section{
-    display: flex;
-    justify-content: space-between;
+.bill__result section {
+  display: flex;
+  justify-content: space-between;
 }
 
 .per_person {
-    color: var(--color-green-400);
-    font-size: var(--font-size-1);
-    line-height: var(--line-height-1);
-    letter-spacing: var(--letter-spacing-1);
+  color: var(--color-green-400);
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-1);
 }
 
-.bill__result_text{
-    font-size: var(--font-size-5);
-    line-height: var(--line-height-5);
-    letter-spacing: var(--letter-spacing-5);
+.bill__result_text {
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-5);
+  letter-spacing: var(--letter-spacing-5);
 }
 
 .bill__result_text small {
-    font-size: var(--font-size-6);
-    line-height: var(--line-height-6);
-    letter-spacing: var(--letter-spacing-6);
-    color: var(--color-grey-400);
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-6);
+  letter-spacing: var(--letter-spacing-6);
+  color: var(--color-grey-400);
 }
 
 button {
-    background-color: var(--color-green-400);
-    padding-inline: var(--spacing-200);
-    padding-block: var(--spacing-100);
-    text-transform: uppercase;
-    color: var(--color-green-900);
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 5px;
+  background-color: var(--color-green-400);
+  padding-inline: var(--spacing-200);
+  padding-block: var(--spacing-100);
+  text-transform: uppercase;
+  color: var(--color-green-900);
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
 }
 
+button:hover,
+button:focus {
+  background-color: var(--color-green-200);
+}
+
+button:disabled {
+  color: var(--color-green-800);
+  background-color: var(--color-green-750);
+}
+
+.number_of_people {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: var(--color-orange-400);
+  display: none;
+}
