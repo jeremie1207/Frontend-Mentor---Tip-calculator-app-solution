@@ -79,6 +79,7 @@ body {
   font-weight: var(--font-weight-primary);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-5);
+  color: var(--color-grey-500);
   /* 4. Add accessible line-height */
   line-height: var(--line-height-5);
   /* 5. Improve text rendering */
@@ -183,22 +184,48 @@ main {
   }
 }
 
-.bill__section_input {
-  inline-size: 100%;
-  color: var(--color-green-900);
-  text-align: end;
-}
-
 .bill__section_input_icon {
   position: relative;
 }
-.bill__section_input_icon img {
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-  height: 1.5rem;
+
+.bill__section_input {
+  background-color: var(--color-grey-50); 
+  inline-size: 100%;
+  color: var(--color-green-900);
+  text-align: end;
+  border-radius: 5px;
+  border: solid 2px transparent;
+  padding-inline: var(--spacing-200);
+  padding-block: var(--spacing-100);
 }
 
-.bill__section_input input {
-  padding: 4px 6px;
+.bill__section_input:focus{
+  outline: none;
+  border: 2px solid var(--color-green-400);
+}
+
+.bill__section_input_icon img {
+  position: absolute;
+  left: 8px;
+  top: 10%;
+  transform: translateY(50%);
+  pointer-events: none;
+}
+
+
+
+.bill__result {
+    background-color: var(--color-green-900);
+    padding: var(--spacing-300);
+    border-radius: 15px;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 37.5rem) {
+  .bill__result {
+    padding-inline: var(--spacing-400);
+  }
 }
