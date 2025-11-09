@@ -254,12 +254,7 @@ img[alt="logo of SPLITTER"] {
 }
 .tip__options label {
   background-color: var(--color-green-900);
-  text-align: center;
   color: var(--color-white);
-  padding-inline: var(--spacing-200);
-  padding-block: var(--spacing-100);
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .tip__options label:hover {
@@ -299,13 +294,7 @@ img[alt="logo of SPLITTER"] {
 
 button {
   background-color: var(--color-green-400);
-  padding-inline: var(--spacing-200);
-  padding-block: var(--spacing-100);
-  text-transform: uppercase;
   color: var(--color-green-900);
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 5px;
 }
 
 button:hover,
@@ -326,4 +315,16 @@ button:disabled {
 .error-message {
   color: var(--color-orange-400);
   display: none;
+}
+
+/* utilities */
+
+.btn {
+  padding-inline: var(--spacing-200);
+  padding-block: var(--spacing-100);
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
 }
