@@ -137,9 +137,6 @@ fieldset {
 }
 
 main {
-  display: grid;
-  place-items: center;
-  place-content: center;
   min-height: 100vh;
 }
 
@@ -149,7 +146,6 @@ img[alt="logo of SPLITTER"] {
 
 .bill__container {
   background-color: var(--color-white);
-  display: grid;
   padding-block: var(--spacing-400);
   padding-inline: var(--spacing-300);
   gap: var(--spacing-400);
@@ -226,9 +222,7 @@ img[alt="logo of SPLITTER"] {
   padding: var(--spacing-300);
   border-radius: 15px;
   color: var(--color-white);
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 @media (min-width: 37.5rem) {
@@ -238,7 +232,6 @@ img[alt="logo of SPLITTER"] {
 }
 
 .tip__options {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-100);
 }
@@ -252,64 +245,42 @@ img[alt="logo of SPLITTER"] {
 .tip__options input[type="radio"] {
   display: none;
 }
-.tip__options label {
+.btn-tip {
   background-color: var(--color-green-900);
   color: var(--color-white);
 }
 
-.tip__options label:hover {
+.btn-tip:hover {
   background-color: var(--color-green-400);
   color: var(--color-green-900);
 }
 
-.tip__options label[data-state="active"] {
+.btn-tip[data-state="active"] {
   background-color: var(--color-green-200);
   color: var(--color-green-900);
-}
-
-.bill__result section {
-  display: flex;
-  justify-content: space-between;
 }
 
 .per_person {
   color: var(--color-green-400);
-  font-size: var(--font-size-1);
-  line-height: var(--line-height-1);
-  letter-spacing: var(--letter-spacing-1);
-}
-
-.bill__result_text {
-  font-size: var(--font-size-5);
-  line-height: var(--line-height-5);
-  letter-spacing: var(--letter-spacing-5);
 }
 
 .bill__result_text small {
-  font-size: var(--font-size-6);
-  line-height: var(--line-height-6);
-  letter-spacing: var(--letter-spacing-6);
   color: var(--color-grey-400);
 }
 
-button {
+.btn-reset {
   background-color: var(--color-green-400);
   color: var(--color-green-900);
 }
 
-button:hover,
-button:focus {
+.btn-reset:hover,
+.btn-reset:focus {
   background-color: var(--color-green-200);
 }
 
-button:disabled {
+.btn-reset:disabled {
   color: var(--color-green-800);
   background-color: var(--color-green-750);
-}
-
-.number_of_people {
-  display: flex;
-  justify-content: space-between;
 }
 
 .error-message {
@@ -327,4 +298,57 @@ button:disabled {
   border-radius: 5px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.grid-container {
+  display: grid;
+}
+
+.grid-center {
+  place-content: center;
+  place-items: center;
+}
+
+.text-preset1 {
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-1);
+}
+
+.text-preset2 {
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+  letter-spacing: var(--letter-spacing-2);
+}
+
+.text-preset3 {
+  font-size: var(--font-size-3);
+  line-height: var(--line-height-3);
+  letter-spacing: var(--letter-spacing-3);
+}
+
+.text-preset4 {
+  font-size: var(--font-size-4);
+  line-height: var(--line-height-4);
+  letter-spacing: var(--letter-spacing-4);
+}
+
+.text-preset5 {
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-5);
+  letter-spacing: var(--letter-spacing-5);
+}
+
+.text-preset6 {
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-6);
+  letter-spacing: var(--letter-spacing-6);
 }
