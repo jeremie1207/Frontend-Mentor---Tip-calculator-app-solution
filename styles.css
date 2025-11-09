@@ -209,6 +209,12 @@ img[alt="logo of SPLITTER"] {
   border: 2px solid var(--color-green-400);
 }
 
+.bill__section_input[aria-invalid="true"],
+.tip__options input[aria-invalid="true"] {
+  outline: none;
+  border: 2px solid var(--color-orange-400);
+}
+
 .bill__section_input_icon img {
   position: absolute;
   left: 8px;

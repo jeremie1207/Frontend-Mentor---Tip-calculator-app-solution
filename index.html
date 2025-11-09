@@ -36,7 +36,12 @@
   <body>
     <main class="grid-container grid-center">
       <img src="./images/logo.svg" alt="logo of SPLITTER" />
-      <form class="bill__container grid-container" action="" novalidate>
+      <form
+        class="bill__container grid-container"
+        id="form"
+        action="#"
+        novalidate
+      >
         <section class="bill__section">
           <section>
             <label for="bill">Bill</label><br />
@@ -47,6 +52,7 @@
                 type="number"
                 id="bill"
                 name="bill"
+                aria-invalid="false"
                 placeholder="0"
               />
             </div>
@@ -65,7 +71,12 @@
               <label class="btn btn-tip tip-25" for="tip-25">25%</label>
               <input type="radio" name="tip" id="tip-50" value="50" />
               <label class="btn btn-tip tip-50" for="tip-50">50%</label>
-              <input type="number" id="custom-tip" placeholder="Custom" />
+              <input
+                type="number"
+                id="custom-tip"
+                aria-invalid="false"
+                placeholder="Custom"
+              />
             </div>
           </fieldset>
           <section>
@@ -83,6 +94,7 @@
                 type="number"
                 name="people"
                 id="people"
+                aria-invalid="false"
                 placeholder="0"
               />
             </div>
