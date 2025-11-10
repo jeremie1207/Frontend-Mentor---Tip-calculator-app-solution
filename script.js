@@ -12,14 +12,16 @@ let tipPercent;
 let billAmount;
 let people;
 
+const round2 = number => number.toFixed(2);
+
 const calcTip = (bill, percent, numPerson) => {
   const result = (bill * (percent / 100)) / numPerson;
-  return result.toFixed(2);
+  return round2(result);
 };
 
 const calcTotal = (bill, percent, numPerson) => {
   const result = (bill * (1 + percent / 100)) / numPerson;
-  return result.toFixed(2);
+  return round2(result);
 };
 
 const updateResult = () => {
@@ -67,20 +69,31 @@ tips.forEach((tip) => {
   });
 });
 
-customTipInput.addEventListener("click", function () {
+const setTipCheckedToFalse = () =>  {
   removeDataStateOnBtnTips();
   tips.forEach((tip) => {
     tip.checked = false;
   });
-});
+}
+
+customTipInput.addEventListener("click", setTipCheckedToFalse);
+
+const setAriaInvalidToTrue = event => {
+  event.target.setAttribute("aria-invalid", "true");
+  event.target.value = null;
+}
+
+const setAriaInvalidToFalse = event => {
+  event.target.setAttribute("aria-invalid", "false");
+}
 
 customTipInput.addEventListener("change", function (event) {
   const tip = parseInt(event.target.value);
   if (!(tip > 0 && tip <= 100)) {
-    event.target.setAttribute("aria-invalid", "true");
+    setAriaInvalidToTrue(event)
     return;
   }
-  event.target.setAttribute("aria-invalid", "false");
+  setAriaInvalidToFalse(event);
   tipPercent = tip;
   updateResult();
 });
@@ -88,20 +101,18 @@ customTipInput.addEventListener("change", function (event) {
 billAmountInput.addEventListener("change", function (event) {
   const bill = parseInt(event.target.value);
   if (!(bill > 0)) {
-    event.target.setAttribute("aria-invalid", "true");
-    event.target.value = null;
+    setAriaInvalidToTrue(event);
     return;
   }
+  setAriaInvalidToFalse(event);
   billAmount = bill;
-  event.target.setAttribute("aria-invalid", "false");
   updateResult();
 });
 
 numberOfPeople.addEventListener("change", function (event) {
   const amount = parseInt(event.target.value);
   if (!(amount > 0)) {
-    event.target.setAttribute("aria-invalid", "true");
-    event.target.value = null;
+    setAriaInvalidToTrue(event);
     errorMessage.style.display = "block";
     return;
   }
@@ -110,3 +121,23 @@ numberOfPeople.addEventListener("change", function (event) {
   errorMessage.style.display = "none";
   updateResult();
 });
+
+
+const resetBtnHandler = event => {
+  event.preventDefault();
+  billAmount = null;
+  tipPercent = null;
+  people = null;
+  numberOfPeople.value = null;
+  billAmountInput.value = null;
+  customTipInput.value = null;
+  setTipCheckedToFalse();
+  tipPerPerson.textContent = `$0.00`;
+  totalPerPerson.textContent = `$0.00`;
+  resetBtn.disabled = true;
+  errorMessage.style.display = "none";
+  numberOfPeople.setAttribute("aria-invalid", "false");
+  form.reset();
+}
+
+form.addEventListener("submit", resetBtnHandler);
