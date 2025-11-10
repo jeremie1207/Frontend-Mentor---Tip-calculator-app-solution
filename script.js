@@ -12,10 +12,10 @@ let tipPercent;
 let billAmount;
 let people;
 
-const round2 = number => number.toFixed(2);
+const round2 = number => Math.floor(number * 100) / 100;
 
 const calcTip = (bill, percent, numPerson) => {
-  const result = (bill * (percent / 100)) / numPerson;
+  const result = (bill * (percent)) / numPerson / 100;
   return round2(result);
 };
 
@@ -39,11 +39,9 @@ const updateResult = () => {
   resetBtn.disabled = false;
 
   const tipPerson = calcTip(billAmount, tipPercent, people);
-  console.log(tipPerson);
   tipPerPerson.textContent = `$${tipPerson ? tipPerson : "0.00"}`;
 
   const totalResult = calcTotal(billAmount, tipPercent, people);
-  console.log(totalResult);
   totalPerPerson.textContent = `$${totalResult ? totalResult : "0.00"}`;
 };
 
@@ -63,7 +61,7 @@ tips.forEach((tip) => {
     customTipInput.value = "";
     if (this.checked) {
       setActive(this.id);
-      tipPercent = parseInt(this.value);
+      tipPercent = parseFloat(this.value);
     }
     updateResult();
   });
@@ -88,7 +86,7 @@ const setAriaInvalidToFalse = event => {
 }
 
 customTipInput.addEventListener("change", function (event) {
-  const tip = parseInt(event.target.value);
+  const tip = parseFloat(event.target.value);
   if (!(tip > 0 && tip <= 100)) {
     setAriaInvalidToTrue(event)
     return;
@@ -99,7 +97,7 @@ customTipInput.addEventListener("change", function (event) {
 });
 
 billAmountInput.addEventListener("change", function (event) {
-  const bill = parseInt(event.target.value);
+  const bill = parseFloat(event.target.value);
   if (!(bill > 0)) {
     setAriaInvalidToTrue(event);
     return;
