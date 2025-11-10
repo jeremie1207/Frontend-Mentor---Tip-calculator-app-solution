@@ -118,12 +118,12 @@ numberOfPeople.addEventListener("input", function (event) {
 
 const resetBtnHandler = (event) => {
   event.preventDefault();
-  billAmount = null;
-  tipPercent = null;
-  people = null;
-  numberOfPeople.value = null;
-  billAmountInput.value = null;
-  customTipInput.value = null;
+  billAmount = 0;
+  tipPercent = 0;
+  people = 0;
+  numberOfPeople.value = 0;
+  billAmountInput.value = 0;
+  customTipInput.value = 0;
   setTipCheckedToFalse();
   tipPerPerson.textContent = `$0.00`;
   totalPerPerson.textContent = `$0.00`;
