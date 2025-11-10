@@ -75,7 +75,7 @@
 }
 
 body {
-  background-color: var(--color-green-200);
+  background-color: var(--color-grey-200);
   font-weight: var(--font-weight-primary);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-5);
