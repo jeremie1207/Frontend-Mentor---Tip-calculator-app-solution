@@ -6,7 +6,44 @@ const customTipInput = document.getElementById("custom-tip");
 const billAmountInput = document.getElementById("bill");
 const numberOfPeople = document.getElementById("people");
 const errorMessage = document.querySelector(".error-message");
+const tipPerPerson = document.querySelector(".tip-per_person");
+const totalPerPerson = document.querySelector(".total-per_person");
 let tipPercent;
+let billAmount;
+let people;
+
+const calcTip = (bill, percent, numPerson) => {
+  const result = (bill * (percent / 100)) / numPerson;
+  return result.toFixed(2);
+};
+
+const calcTotal = (bill, percent, numPerson) => {
+  const result = (bill * (1 + percent / 100)) / numPerson;
+  return result.toFixed(2);
+};
+
+const updateResult = () => {
+  if (!tipPercent) {
+    return;
+  }
+  if (!billAmount) {
+    return;
+  }
+
+  if (!people) {
+    return;
+  }
+
+  resetBtn.disabled = false;
+
+  const tipPerson = calcTip(billAmount, tipPercent, people);
+  console.log(tipPerson);
+  tipPerPerson.textContent = `$${tipPerson ? tipPerson : "0.00"}`;
+
+  const totalResult = calcTotal(billAmount, tipPercent, people);
+  console.log(totalResult);
+  totalPerPerson.textContent = `$${totalResult ? totalResult : "0.00"}`;
+};
 
 const removeDataStateOnBtnTips = () => {
   btnTips.forEach((btn) => {
@@ -25,8 +62,8 @@ tips.forEach((tip) => {
     if (this.checked) {
       setActive(this.id);
       tipPercent = parseInt(this.value);
-      console.log(tipPercent);
     }
+    updateResult();
   });
 });
 
@@ -45,7 +82,7 @@ customTipInput.addEventListener("change", function (event) {
   }
   event.target.setAttribute("aria-invalid", "false");
   tipPercent = tip;
-  console.log(tipPercent);
+  updateResult();
 });
 
 billAmountInput.addEventListener("change", function (event) {
@@ -55,7 +92,9 @@ billAmountInput.addEventListener("change", function (event) {
     event.target.value = null;
     return;
   }
+  billAmount = bill;
   event.target.setAttribute("aria-invalid", "false");
+  updateResult();
 });
 
 numberOfPeople.addEventListener("change", function (event) {
@@ -66,6 +105,8 @@ numberOfPeople.addEventListener("change", function (event) {
     errorMessage.style.display = "block";
     return;
   }
+  people = amount;
   event.target.setAttribute("aria-invalid", "false");
   errorMessage.style.display = "none";
+  updateResult();
 });
