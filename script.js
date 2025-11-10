@@ -12,17 +12,13 @@ let tipPercent;
 let billAmount;
 let people;
 
-const round2 = number => Math.floor(number * 100) / 100;
+const round2 = (number) => Math.round(number * 100) / 100;
 
-const calcTip = (bill, percent, numPerson) => {
-  const result = (bill * (percent)) / numPerson / 100;
-  return round2(result);
-};
+const calcTip = (bill, percent, numPerson) =>
+  round2((bill * percent) / numPerson / 100);
 
-const calcTotal = (bill, percent, numPerson) => {
-  const result = (bill * (1 + percent / 100)) / numPerson;
-  return round2(result);
-};
+const calcTotal = (bill, percent, numPerson) =>
+  round2((bill * (1 + percent / 100)) / numPerson);
 
 const updateResult = () => {
   if (!tipPercent) {
@@ -67,28 +63,28 @@ tips.forEach((tip) => {
   });
 });
 
-const setTipCheckedToFalse = () =>  {
+const setTipCheckedToFalse = () => {
   removeDataStateOnBtnTips();
   tips.forEach((tip) => {
     tip.checked = false;
   });
-}
+};
 
 customTipInput.addEventListener("click", setTipCheckedToFalse);
 
-const setAriaInvalidToTrue = event => {
+const setAriaInvalidToTrue = (event) => {
   event.target.setAttribute("aria-invalid", "true");
   event.target.value = null;
-}
+};
 
-const setAriaInvalidToFalse = event => {
+const setAriaInvalidToFalse = (event) => {
   event.target.setAttribute("aria-invalid", "false");
-}
+};
 
-customTipInput.addEventListener("change", function (event) {
+customTipInput.addEventListener("input", function (event) {
   const tip = parseFloat(event.target.value);
   if (!(tip > 0 && tip <= 100)) {
-    setAriaInvalidToTrue(event)
+    setAriaInvalidToTrue(event);
     return;
   }
   setAriaInvalidToFalse(event);
@@ -107,7 +103,7 @@ billAmountInput.addEventListener("change", function (event) {
   updateResult();
 });
 
-numberOfPeople.addEventListener("change", function (event) {
+numberOfPeople.addEventListener("input", function (event) {
   const amount = parseInt(event.target.value);
   if (!(amount > 0)) {
     setAriaInvalidToTrue(event);
@@ -120,8 +116,7 @@ numberOfPeople.addEventListener("change", function (event) {
   updateResult();
 });
 
-
-const resetBtnHandler = event => {
+const resetBtnHandler = (event) => {
   event.preventDefault();
   billAmount = null;
   tipPercent = null;
@@ -136,6 +131,6 @@ const resetBtnHandler = event => {
   errorMessage.style.display = "none";
   numberOfPeople.setAttribute("aria-invalid", "false");
   form.reset();
-}
+};
 
 form.addEventListener("submit", resetBtnHandler);
